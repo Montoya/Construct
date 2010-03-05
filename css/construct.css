@@ -1,0 +1,154 @@
+/* construct.css */
+
+/*
+Copyright 2010 Christian Montoya. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, this list of
+      conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright notice, this list
+      of conditions and the following disclaimer in the documentation and/or other materials
+      provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY CHRISTIAN MONTOYA ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those of the
+authors and should not be interpreted as representing official policies, either expressed
+or implied, of Christian Montoya.
+*/
+
+body {
+  margin:0 0;
+}
+
+.construct-hideLink {
+  text-align:right;
+  color:#333;
+  font-weight:bold;
+  padding-bottom:2px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:15px;
+}
+
+#construct-header {
+  background:#222;
+  color:#fafafa;
+}
+
+#construct-header .inside {
+  margin:0 auto;
+  padding:18px 0;
+  width:950px;
+}
+
+#construct-header .inside * {
+  display:inline;
+}
+
+#construct-header h1 {
+  color:#fafafa;
+  font-family:Cambria, Georgia, serif;
+}
+
+#construct-actionMenu li a {
+  color:#ddf;
+  font-weight:bold;
+  margin-left:6px;
+}
+#construct-actionMenu li a:hover {
+  color:#fff;
+}
+#construct-actionMenu .finalAction {
+  font-weight:bold;
+  margin-left:24px;
+}
+#construct-actionMenu .finalAction a {
+  margin-left:0;
+}
+
+#construct-controls, #construct-about, #construct-output {
+  background-color:#ffd;
+  display:block;
+  position:absolute;
+  top:80px;
+  left:50%;
+  margin-left:-218px;
+  padding:18px 18px 0 18px;
+  width:400px;
+}
+#construct-about, #construct-output {
+  display:none;
+  background-color:#efe;
+}
+#construct-controls .hideControls, #construct-about .hideAbout {
+  font-weight:bold;
+  text-align:center;
+}
+#construct-output {
+  width:500px;
+  margin-left:-268px;
+}
+#construct-markup, #construct-styles {
+  font-family:consolas, 'bitstream vera sans mono', 'lucida sans mono', monospace;
+  border:1px solid #999;
+  padding:8px;
+  margin-bottom:18px;
+}
+
+#construct {
+  padding:18px 0;
+}
+
+#construct.edit .container { 
+  background-color:#ddd;
+  margin-bottom:18px;
+  height:30px;
+}
+html>body #construct.edit .container {
+  height:auto;
+  min-height:30px;
+}
+#construct.edit .container.selected { 
+  background-color:#cce;
+}
+
+#construct.edit .column {
+  background-color:#999;
+  border-top:1px solid #bbb;
+  border-bottom:1px solid #bbb;
+  height:28px;
+}
+html>body #construct.edit .column {
+  height:auto;
+  min-height:28px;
+  overflow:hidden;
+}
+#construct.edit .column.selected {
+  background-color:#88a;
+}
+
+#construct.edit .container {
+  background-position:left top;
+  background-repeat:repeat-x;
+}
+#construct.edit .container.identified {
+  background-image:url(../img/identified-container.png);
+}
+#construct.edit .column{
+  background-position:right top;
+  background-repeat:no-repeat;
+}
+#construct.edit .column.identified {
+  background-image:url(../img/identified-column.png);
+}

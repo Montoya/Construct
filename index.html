@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+  
+  <title>Construct Your CSS | WYSIWYG Layout Editor, Semantic &amp; Table-Free | Based on Blueprint &amp; jQuery</title>
+  
+  <!-- 
+Copyright 2010 Christian Montoya. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, this list of
+      conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright notice, this list
+      of conditions and the following disclaimer in the documentation and/or other materials
+      provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY CHRISTIAN MONTOYA ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those of the
+authors and should not be interpreted as representing official policies, either expressed
+or implied, of Christian Montoya.
+  -->
+  
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+  <script type='text/javascript' src='/jquery/jquery.dimensions.pack.js'></script>
+  <script type='text/javascript' src='/gridArray/gridArray.js'></script>
+  <script type='text/javascript' src='/js/construct.js?v=0.5'></script>
+  <script type='text/javascript' src='/js/construct-parser.js?v=0.5'></script>
+  
+  <link rel='stylesheet' type='text/css' href='/blueprint/screen.css'>
+  <link rel='stylesheet' type='text/css' href='/css/construct.css'>
+  
+</head>
+
+<body>
+  
+  <div id='construct-header'>
+    <div class='inside'>
+      <h1>Construct 1.0</h1>
+      <ul id='construct-actionMenu'>
+        <li><a href='#' id='construct-addContainer' title='Also can be done with Q'>Add Container</a></li>
+        <li><a href='#' id='construct-addColumn' title='Also can be done with A'>Add Column</a></li>
+        <li><a href='#' id='construct-preview' title='See your layout with the Blueprint CSS only'>Preview</a></li>
+        <li><a href='#' id='construct-edit' style='display:none' title='Back to Construct editing mode'>Edit</a></li>
+        <li><a href='#' id='construct-parseConstruct' title='Generate your HTML and grid CSS'>Construct It!</a></li>
+        <li><a href='#' id='construct-viewControls' title='View the dialog that appeared on page load'>View Controls</a></li>
+        <li><a href='#' id='construct-viewAbout' title='Credits and such'>About</a></li>
+        <li class='finalAction'>&mdash; by <a href="http://www.christianmontoya.net" title='Please visit my other sites!'>Christian Montoya</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id='construct-controls'>
+    <div class='construct-hideLink'><a href='#'>Hide this [X]</a></div>
+    <p>Welcome to Construct, a visual layout editor based on Blueprint &amp; jQuery! This is version 1.0, finalized on March 5, 2010 and released for public consumption under the FreeBSD License. This project was built by Christian Montoya, and exists both as a useful tool for CSS designers and as proof that a visual layout editor is possible to acheive with clean CSS &amp; semantic HTML. Read on for an explanation of the controls.</p>
+    <p>Here are the keyboard mappings for Construct:</p>
+    <ul>
+      <li><b>Up arrow</b> &mdash; select the previous container</li>
+      <li><b>Down arrow</b> &mdash; select the next container</li>
+      <li><b>Left arrow</b> &mdash; select the previous column</li>
+      <li><b>Right arrow</b> &mdash; select the next column</li>
+      <li><b>J</b> &mdash; contract the current column</li>
+      <li><b>K</b> &mdash; expand the current column</li>
+      <li><b>L</b> &mdash; toggle class="last" on the current column</li>
+      <li><b>Q</b> &mdash; add a new container</li>
+      <li><b>W</b> &mdash; give the selected container an ID</li>
+      <li><b>E</b> &mdash; delete the selected container</li>
+      <li><b>R</b> &mdash; remove the ID from the selected column</li>
+      <li><b>A</b> &mdash; add a new column</li>
+      <li><b>S</b> &mdash; give the selected column an ID</li>
+      <li><b>D</b> &mdash; delete the selected column</li>
+      <li><b>F</b> &mdash; remove the ID from the selected column</li>
+      <li><b>Z</b> &mdash; add or remove an &lt;hr&gt; after the selected container</li>
+      <li><b>C</b> &mdash; fill the selected column with Lorem Ipsum text</li>
+      <li><b>V</b> &mdash; remove all text from the selected column</li>
+    </ul>
+    <p>Also, you can click on any container or column to select it.</p>
+  </div>
+  
+  <div id='construct-about'>
+    <div class='construct-hideLink'><a href='#'>Hide this [X]</a></div>
+    <p>Construct is a visual layout editor based on <a href="http://blueprintcss.org/">Blueprint</a>.</p>
+    <p>It was inspired by the <a href="http://blueprintlayouttool.com/">Blueprint Layout Builder</a>.</p>
+    <p>It is powered by <a href="http://www.jquery.com">jQuery</a>.</p>
+    <p>And, finally, it was written by <a href="http://www.christianmontoya.net">Christian Montoya</a>.</p>
+  </div>
+  
+  <div id='construct-output'>
+    <div class='construct-hideLink'><a href='#'>Hide this [X]</a></div>
+    <strong>Your Body HTML</strong>
+    <div id='construct-markup'></div>
+    <strong>Your Grid CSS</strong>
+    <div id='construct-styles'></div>
+  </div>
+  
+  <div id='construct' class='edit'>
+  
+  </div>
+  
+</body>
+
+</html>
